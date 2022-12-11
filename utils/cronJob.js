@@ -6,6 +6,7 @@ module.exports = async function cronJobGetData () {
 		localResArr = [];
 		for (website of Websites) {
 			const { currentTime, responseTime } = await getResTimeFromWebsite(website.url);
+			/* Javascript timestamp (milliseconds) to UNIX timestamp (seconds) */
 			const time = Math.trunc(currentTime / 1000);
 			const websiteResponse = {
 				website: website.name,
