@@ -23,8 +23,8 @@ const server = app.listen(PORT, () => {
 	console.log(`Server running on port ${PORT}....`);
 });
 
-/* Running a task every 5 secondes */
-cron.schedule('*/5 * * * * *', async () => {
+/* Running a task every 2 secondes */
+cron.schedule('*/2 * * * * *', async () => {
 	memoryStorageData = await cronJobGetData();
 });
 
