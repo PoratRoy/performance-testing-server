@@ -6,8 +6,7 @@
 
 ## Technical Stacks
 - Worked with [express](https://www.npmjs.com/package/express)
-- [node-cron](https://www.npmjs.com/package/node-cron) 
-- [https](https://www.npmjs.com/package/https) 
+- [axios](https://www.npmjs.com/package/axios)
 
 ## Available Scripts
 
