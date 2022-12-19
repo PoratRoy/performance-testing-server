@@ -6,4 +6,6 @@ const Websites = [
 	{ url: 'https://www.amazon.com/', name: 'amazon' },
 ];
 
-module.exports = { Websites };
+const Delay = 5000;
+
+module.exports = { Websites, Delay };

@@ -2,12 +2,17 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const cronJobGetData = require('./utils/cronJob');
-var cron = require('node-cron');
+const intervalActionGetData = require('./utils/intervalAction');
 
 const PORT = process.env.PORT || 4000;
 
-let memoryStorageData = [];
+global.memoryStorageData = {
+	google: {},
+	facebook: {},
+	twitter: {},
+	cnet: {},
+	amazon: {},
+};
 
 app.use(cors());
 app.use((req, res, next) => {
@@ -23,12 +28,9 @@ const server = app.listen(PORT, () => {
 	console.log(`Server running on port ${PORT}....`);
 });
 
-/* Running a task every 2 secondes */
-cron.schedule('*/2 * * * * *', async () => {
-	memoryStorageData = await cronJobGetData();
-});
+intervalActionGetData()
 
 app.get('/', async (req, res) => {
-	console.log('Response to the front-end: ', memoryStorageData);
+	console.log('Response to the client: ', memoryStorageData);
 	res.status(200).json(memoryStorageData);
 });
